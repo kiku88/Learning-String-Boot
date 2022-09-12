@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Built-By: Onsiter
+Build-Jdk: 17.0.3
+Implementation-Title: springexam
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: vn.com.vti
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-boot
+ -starter-parent/springexam
+Created-By: Maven Integration for Eclipse
+
