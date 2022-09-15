@@ -1,7 +1,10 @@
 package vn.com.vti.springexam.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -21,7 +24,10 @@ public class PrefectureInsertController {
 		return"prefecture/prefectureInsertInput";
 	}
 	@RequestMapping("/confirm")
-	public String confirm(PrefectureForm prefectureForm, Model model) {
+	public String confirm(@Valid PrefectureForm prefectureForm, BindingResult bindingResult,Model model) {
+		if(bindingResult.hasErrors()) {
+			return input(prefectureForm);
+		}
 		return "prefecture/prefectureInsertConfirm";
 	}
 }
