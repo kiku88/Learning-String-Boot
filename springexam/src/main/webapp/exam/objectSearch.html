@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Object search</title>
+<script type="text/javascript">
+	var objects = {};
+	function pushObject(){
+		var obj ={};
+		obj.id = document.registForm.id.value;
+		obj.name = document.registForm.name.value;
+		objects[obj.id]=obj;
+		document.registForm.id.value= "";
+		document.registForm.name.value="";
+		
+	}
+	function displayAll(){
+		var str = "";
+		for(var i in objects){
+			str += i + ":" + objects[i].name + "\n";
+			
+		}
+		alert(str);
+		
+	}
+	function search(){
+		var obj = objects[document.searchForm.id.value];
+		if(obj==null){
+			alert("存在しません。");
+
+		}else{
+			alert(obj.name);
+		}
+	}
+
+</script>
+
+
+</head>
+<body>
+	<form name="registForm">
+		<dl>
+			<dt>ID</dt>
+			<dd>
+				<input type="text" name="id">
+			</dd>
+			<dt>名前</dt>
+			<dd>
+				<input type="text" name="name">
+			</dd>
+		</dl>
+		<input type="button" value="追加" onclick="pushObject()">
+	</form>
+	<form name="printForm">
+		<input type="button" value="全表示" onclick="displayAll()">
+	</form>
+	<form name="searchForm">
+		<input type="text" name="id"> <input type="button" value="検索"
+			onclick="search()">
+	</form>
+</body>
+</html>

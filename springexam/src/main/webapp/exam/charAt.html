@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Plus</title>
+<script type="text/javascript">
+	charat = function(){
+		var str = document.fm.str.value;
+		var position = parseInt(document.fm.pos.value);
+		
+		var result = str.charAt(position-1);
+		alert(result);
+	}
+
+</script>
+
+</head>
+<body>
+	<form name="fm">
+	<dl>
+		<dt>文字列</dt>
+		<dd><input name="str" type="text"/></dd>
+		<dt>位置</dt>
+		<dd><input name="pos" type="text"/></dd>
+	</dl>
+		<input type="submit" value="実行" onclick="charat()"/>
+	</form>
+</body>
+</html>

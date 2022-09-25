@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Sum Array</title>
+<script>
+	function sum(){
+		var nums = document.fm.num;
+		var sum=0;
+		for(var i= 0; i<nums.length; i++){
+			var val = nums[i].value;
+			if(val == ""){
+				continue;
+			}
+			sum += parseInt(val);
+		}
+		alert(sum);
+		
+	}
+
+</script>
+
+</head>
+<body>
+	<form name="fm">
+		<p><input name = "num" type="text"/></p>
+		<p><input name = "num" type="text"/></p>
+		<p><input name = "num" type="text"/></p>
+		<p><input name = "num" type="text"/></p>
+		<p><input name = "num" type="text"/></p>
+		<p><input name = "num" type="text"/></p>
+		<p><input type = "button" value = "合計" onclick="sum()"/></p>
+	</form>
+</body>
+</html>

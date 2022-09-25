@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Jump</title>
+<script type="text/javascript">
+	function jump() {
+		var siteName = document.fm.siteName.value;
+		if (siteName == "文部科学省") {
+			document.fm.action = "https://www.mext.go.jp/";
+		} else if (siteName == "経済産業省") {
+			document.fm.action = "https://www.meti.go.jp/";
+
+		} else {
+			alert("遷移できません。");
+			return false;
+		}
+
+	}
+</script>
+</head>
+<body>
+	<form name="fm">
+		<dl>
+			<dt>文字列</dt>
+			<dd>
+				<input type="text" name="siteName" />
+			</dd>
+		</dl>
+		<input type="submit" value="実行" onclick="return jump()" />
+	</form>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Hello</title>
+</head>
+<script type="text/javascript" src="checkutil.js"></script>
+<script type="text/javascript">
+
+function sum(){
+	var errTag = document.getElementById("err");
+	var resultTag = document.getElementById("result");
+	
+	errTag.innerHTML ="";
+	resultTag.innerHTML ="";
+	document.fm.val1.style.backgroundColor ="white";
+	document.fm.val2.style.backgroundColor = "white";
+	
+	var val1 = document.fm.val1.value;
+	var val2 = document.fm.val1.value;
+	
+	var errorMessages = [];
+	if(val1 == ""){
+		errorMessages.push("数値1を入力してください。");
+		document.fm.val1.style.backgroundColor = "red";
+	}
+	if(val2 == ""){
+		errorMessages.push("数値２を入力してください。");
+		document.fm.val2.style.backgroundColor = "red";
+	}
+	if(!isPlusNumber(document.fm.val1.value)){
+		errorMessages.push("数値１に正の整数を入力してください。");
+		document.fm.val1.style.backgroundColor = "red";
+	}
+	if(!isPlusNumber(document.fm.val2.value)){
+		errorMessages.push("数値2に正の整数を入力してください。");
+		document.fm.val2.style.backgroundColor = "red";
+	}
+	if(errorMessages.length>0){
+		var msg = errorMessages.join("<br>");
+		errTag.innerHTML = msg;
+		return;
+	}
+	var sum = parseInt(document.fm.val1.value) + parseInt(document.fm.val2.value);
+	resultTag.innerHTML = "結果：" + sum;
+}
+</script> 
+<body>
+<span id="err" style="color:red"></span>
+<form name="fm">
+	<input name = "val1" type="text"/>
+	+
+	<input name = "val2" type="text"/>
+	<input type="button" value="計算" onclick="sum()"/>
+<br>
+</form>
+<div id="result"></div>
+</body>
+</html>
