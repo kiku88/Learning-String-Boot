@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Check Regist</title>
+<script type="text/javascript">
+
+	function checkNull(){
+		var id = document.fm.id.value;
+		var name = document.fm.name.value;
+		var password = document.fm.password.value;
+		
+		var msg = "";
+		if(id==""){
+			msg = "会員IDを入力してください。\n";
+		}
+		if(name==""){
+			msg += "会員名を入力してください。\n";
+		}
+		if(password == ""){
+			msg += "パスワードを入力してください。";
+		}
+		if(msg==""){
+			msg = "問題ありません。";
+		}
+	alert(msg);
+	}
+
+</script>
+
+</head>
+<body>
+	<form name="fm">
+	<dl>
+		<dt>会員ID</dt>
+		<dd>
+			<input name = "id" type="text"/>
+		</dd>
+		<dt>会員名前</dt>
+		<dd>
+			<input name = "name" type="text"/>
+		</dd>
+		<dt>パスワード</dt>
+		<dd>
+			<input name = "password" type="text"/>
+		</dd>
+	</dl>
+		<input type = "button" value = "登録" onclick="checkNull()"/>
+	</form>
+</body>
+</html>

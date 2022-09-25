@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>For</title>
+<script type="text/javascript">
+	calc = function(){
+		var startValue = document.fm.start.value;
+		var endValue = document.fm.end.value;
+		
+		var result = "";
+		for(var i=startValue; i <= endValue ; i++){
+			result += i;
+			
+		}
+		alert(result);
+	}
+
+
+</script>
+
+</head>
+<body>
+	<form name="fm">
+		<dl>
+			<dt>開始
+			<dt>
+			<dd>
+				<input name="start" type="text" />
+			</dd>
+			<dt>終了
+			<dt>
+			<dd>
+				<input name="end" type="text" />
+			</dd>
+		</dl>
+		<input type="button" value="計算" onclick="calc()" /><br />
+	</form>
+</body>
+</html>

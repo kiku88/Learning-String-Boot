@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Plus</title>
+<script type="text/javascript">
+	excute1 = function(){
+		var str = document.fm.str.value;
+		var result = str.toUpperCase();
+		alert(result);
+	}
+	excute2 = function(){
+		var str = document.fm.str.value;
+		var result = str.length;
+		alert(result);
+	}
+</script>
+
+</head>
+<body>
+	<h1>文字列</h1>
+	<form name="fm">
+		<input name="str" type="text"/>
+		<input type="submit" value="大文字" onclick="excute1()"/>
+		<input type="submit" value="文字列長" onclick="excute2()"/>
+	</form>
+</body>
+</html>

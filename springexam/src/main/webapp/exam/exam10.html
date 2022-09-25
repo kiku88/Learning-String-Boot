@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Member regist and search</title>
+<script type="text/javascript">
+	var objects = {};
+	function pushObject(){
+		var id = document.fm.id.value;
+		var name = document.fm.name.value;
+		var password = document.fm.password.value;
+		
+		var msg = "";
+		if(id==""){
+			msg = "会員IDを入力してください。\n";
+		}
+		if(name==""){
+			msg += "会員名を入力してください。\n";
+		}
+		if(password == ""){
+			msg += "パスワードを入力してください。";
+		}
+		if(msg==""){
+			msg = "問題ありません。登録しました。";
+			var obj ={};
+			obj.id = document.fm.id.value;
+			obj.name = document.fm.name.value;
+			obj.password = document.fm.password.value;
+			objects[obj.id]=obj;
+			document.fm.id.value= "";
+			document.fm.name.value="";
+			document.fm.password.value= "";
+			
+		}
+		alert(msg);
+	}
+	
+	function search(){
+		var obj = objects[document.searchForm.id.value];
+		if(obj==null){
+			alert("存在しません。");
+
+		}else{
+			alert("会員名："+ obj.name + "\n" 
+					+ "パスワード：" + obj.password);
+		}
+	}
+</script>
+</head>
+<body>
+<form name="fm">
+	<dl>
+		<dt>会員ID</dt>
+		<dd>
+			<input name = "id" type="text"/>
+		</dd>
+		<dt>会員名前</dt>
+		<dd>
+			<input name = "name" type="text"/>
+		</dd>
+		<dt>パスワード</dt>
+		<dd>
+			<input name = "password" type="text"/>
+		</dd>
+	</dl>
+		<input type = "button" value = "登録" onclick="pushObject()"/>
+<br>
+</form>
+<form name="searchForm">
+	<input type="text" name="id"> 
+	<input type="button" value="検索"
+			onclick="search()">
+</form>
+</body>
+</html>
