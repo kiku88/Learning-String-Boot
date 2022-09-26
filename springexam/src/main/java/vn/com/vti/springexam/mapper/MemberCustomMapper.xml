@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="vn.com.vti.springexam.mapper.MemberCustomMapper">
+	<resultMap id="memberCustom" type="vn.com.vti.springexam.entity.MemberCustom">
+		<id property="memberId" column="member_id" />
+		<result property="lastName" column="last_name" />
+		<result property="firstName" column="first_name" />
+		<result property="birthday" column="birthday" />
+		<result property="jobTypeName" column="job_type_name" />
+	</resultMap>
+
+<select id="selectMemberByName" parameterType="java.lang.String" resultMap="memberCustom">
+	select
+		M.member_id
+		,M.last_name
+		,M.first_name
+		,M.birthday
+		,JT.job_type_name
+	from member as M 
+		LEFT OUTER JOIN job_type as JT on M.job_type_id = JT.job_type_id
+	where
+		M.last_name||M.first_name like #{memberName};
+</select>
+
+</mapper>
