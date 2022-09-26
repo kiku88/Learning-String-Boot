@@ -22,7 +22,7 @@
 		<tr>
 			<td><c:out value="${member.memberId }"/></td>
 			<td><c:out value ="${member.lastName}"/></td>
-			<td><c:out value="${member.birthday}"></c:out></td>
+			<td><fmt:formatDate pattern="yyyy/MM/dd" value="${member.birthday}"/></td>
 			<td><c:out value="${member.jobTypeName}"></c:out></td>
 		</tr>
 	</c:forEach>
