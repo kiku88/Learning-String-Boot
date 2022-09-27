@@ -15,11 +15,18 @@
 		<dl>
 			<dt>ID</dt>
 			<dd>
+				<form:errors path="id" element="p"/>
 				<form:input path="id"/>
 			</dd>
 			<dt>インフラ名</dt>
 			<dd>
+				<form:errors path="name" element="p"/>
 				<form:input path="name"/>
+			</dd>
+			<dt>登録日</dt>
+			<dd>
+				<form:errors path="insertDate" element="p"/>
+				<form:input path="insertDate"/>
 			</dd>
 			<br>
 			<input type="submit" value="追加">
