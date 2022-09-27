@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+function bmiCheck(){
+	
+	var errTag = document.getElementById("err");
+	var resultTag = document.getElementById("result");
+	
+	errTag.innerHTML = "";
+	resultTag.innerHTML = "";
+	var height = document.fm.height.value;
+	var weight = document.fm.weight.value;
+	
+	var errorMessages =[];
+	if(height ==""){
+		errorMessages.push("身長を入力してください。")
+		document.fm.height.style.backgroundColor = "red";
+	}if(weight ==""){
+		errorMessages.push("体重を入力してください。")
+		document.fm.weight.style.backgroundColor = "red";
+	}if(height.length >3 ){
+		errorMessages.push("身長を3桁以内の数値を入力してください。")
+		document.fm.height.style.backgroundColor = "red";
+	}if(weight.length >3){
+		errorMessages.push("体重を3桁以内の数値を入力してください。")
+		document.fm.weight.style.backgroundColor = "red";
+	}
+	if(errorMessages.length>0){
+		var msg = errorMessages.join("<br>");
+		errTag.innerHTML = msg;
+		return;
+	}
+	 var heightBmi = parseInt(height)/100;
+	 var weightBmi = parseInt(weight);
+	 var bmi = (weightBmi/(heightBmi*heightBmi)).toFixed(2);
+
+	 if(bmi<18.5){
+		 resultTag.innerHTML = "低体重";
+	 }else if(bmi>=18.5 && bmi <= 25){
+		 resultTag.innerHTML = "普通体重";
+	 }else{
+		 resultTag.innerHTML = "肥満";
+	 }
+	 
+}
+
+</script>
+</head>
+<body>
+<span id="err" style="color:red"></span>
+<form name="fm">
+<dl>
+	<dt>身長</dt>
+	<dd><input type = "text" name="height"  id="err"/>cm</dd>
+	<dt>体重</dt>
+	<dd><input type = "text" name="weight"  id="err" />kg</dd>
+</dl>
+</form>
+<input type = "button" name="bmi" value="計算" onclick = "bmiCheck();"/>
+<br>
+<div id="result"></div>
+</body>
+</html>
